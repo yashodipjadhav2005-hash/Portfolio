@@ -1,94 +1,86 @@
 :root {
-    --primary-color: #0F044C;
-    --secondary-color: #141E61;
-    --third-color: #787A91;
-    --forth-color: #EEEEEE;
-    --bg-dark: #0f172a;
-    --bg-dark-2: #020617;
-    --primary: #7c3aed;
+    --bg-dark: #020617;
+    --bg-dark-2: #0f172a;
+    --accent: #7c3aed;
+    --accent-soft: rgba(124, 58, 237, 0.15);
     --text-light: #e5e7eb;
     --text-muted: #9ca3af;
-    
+    --border-dark: rgba(255, 255, 255, 0.08);
 }
 
-/* Reset helpers (safe to keep in main CSS) */
-* {
-    box-sizing: border-box;
-}
-
+/* ================= BASE ================= */
 body {
-    margin-left: 100px;
-    background-color: #f8fafc;
+    margin-left: 90px;
+    background: var(--bg-dark);
+    color: var(--text-light);
+    font-family: "Inter", sans-serif;
 }
 
-/* Sidebar Wrapper */
+/* ================= SIDEBAR ================= */
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 72px;
+    inset: 0 auto 0 0;
+    width: 78px;
     height: 100vh;
-    background: linear-gradient(90deg, #1e3a8a, #2563eb);
-    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-2));
+    border-right: 1px solid var(--border-dark);
     transition: width 0.35s ease;
     z-index: 999;
 }
 
-/* Expand on Hover */
 .sidebar:hover {
-    width: 250px;
+    width: 260px;
 }
 
-/* Brand */
+/* ================= BRAND ================= */
 .sidebar-brand {
     display: flex;
     align-items: center;
     gap: 14px;
-    padding: 20px;
-    border-bottom: 1px solid #eee;
+    padding: 22px;
+    border-bottom: 1px solid var(--border-dark);
 }
 
 .brand-icon {
-    font-weight: 700;
     font-size: 20px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    -webkit-background-clip: text;
+    font-weight: 800;
+    background: linear-gradient(135deg, #7c3aed, #a78bfa);
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .brand-text {
     font-size: 16px;
     font-weight: 600;
-    color: #333;
     white-space: nowrap;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .brand-text span {
-    color: #6b4eff;
+    color: var(--accent);
 }
 
 .sidebar:hover .brand-text {
     opacity: 1;
 }
 
-/* Links */
+/* ================= LINKS ================= */
 .sidebar-links {
     list-style: none;
-    padding: 20px 0;
     margin: 0;
-    flex: 1;
+    padding: 20px 0;
 }
 
-.sidebar-links li a {
+.sidebar-links a {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 18px;
     padding: 14px 22px;
+    color: var(--text-muted);
     text-decoration: none;
-    color: #555;
-    transition: all 0.25s ease;
+    transition: background 0.25s ease, color 0.25s ease;
 }
 
 .sidebar-links i {
@@ -106,38 +98,52 @@ body {
     opacity: 1;
 }
 
-/* Hover & Active */
-.sidebar-links a:hover,
-.sidebar-links a.active {
-    background: #f3f0ff;
-    color: #6b4eff;
+/* Hover Effect */
+.sidebar-links a:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
 }
 
-/* CTA */
+/* Left Indicator */
+.sidebar-links a::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 70%;
+    background: var(--accent);
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+.sidebar-links a:hover::before {
+    opacity: 1;
+}
+
+/* ================= CTA ================= */
 .sidebar-cta {
-    padding: 16px;
-    border-top: 1px solid #eee;
+    padding: 18px;
+    border-top: 1px solid var(--border-dark);
 }
 
-.sidebar-cta a {    
-    height: 50px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 12px 18px;
-    background: #6b4eff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    transition: background 0.3s ease;
-}
-
-a-cta i {
-    text-align: center;
-}
+.sidebar-cta a { 
+    height: 30px; 
+    display: flex; 
+    align-items: center; 
+    gap: 14px; 
+    padding: 5px 10px; 
+    background: linear-gradient(135deg, #7c3aed, #6d28d9); 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 12px; 
+    transition: all 0.3s ease; 
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35); }
 
 .sidebar-cta a:hover {
-    background: #5a3fe0;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(124, 58, 237, 0.45);
 }
 
 .sidebar-cta span {
