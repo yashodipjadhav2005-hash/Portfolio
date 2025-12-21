@@ -22,6 +22,7 @@ body {
     inset: 0 auto 0 0;
     width: 78px;
     height: 100vh;
+    /* background-color: rgb(83, 83, 35); */
     background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-2));
     border-right: 1px solid var(--border-dark);
     transition: width 0.35s ease;
@@ -128,18 +129,19 @@ body {
     border-top: 1px solid var(--border-dark);
 }
 
-.sidebar-cta a { 
-    height: 30px; 
-    display: flex; 
-    align-items: center; 
-    gap: 14px; 
-    padding: 5px 10px; 
-    background: linear-gradient(135deg, #7c3aed, #6d28d9); 
-    color: #fff; 
-    text-decoration: none; 
-    border-radius: 12px; 
-    transition: all 0.3s ease; 
-    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35); }
+.sidebar-cta a {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 5px 10px;
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
 
 .sidebar-cta a:hover {
     transform: translateY(-2px);
@@ -154,6 +156,127 @@ body {
 .sidebar:hover .sidebar-cta span {
     opacity: 1;
 }
+
+.nav-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.brand-text {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+/* ================= MOBILE NAVBAR ================= */
+@media (max-width: 768px) {
+
+    body {
+        margin-left: 0;
+    }
+
+    header,
+    .hero {
+        padding-top: 64px;
+    }
+
+    /* ===== SIDEBAR → TOP NAV ===== */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 64px;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(180deg, var(--bg-dark), var(--bg-dark-2));
+        border-bottom: 1px solid var(--border-dark);
+        z-index: 999;
+    }
+
+    /* Disable desktop hover */
+    .sidebar:hover {
+        width: 100%;
+    }
+
+    /* ===== TOP BAR ===== */
+    .nav-top {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 14px 16px;
+        flex-direction: row-reverse; /* brand after toggle */
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .brand-icon {
+        font-size: 18px;
+    }
+
+    .brand-text {
+        opacity: 1;
+        white-space: nowrap;
+        font-size: 15px;
+    }
+
+    /* ===== MENU (ANIMATED) ===== */
+    .sidebar-links,
+    .sidebar-cta {
+        width: 100%;
+        background: var(--bg-dark-2);
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition:
+            max-height 0.35s ease,
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .sidebar.active .sidebar-links {
+        max-height: 400px;
+        opacity: 1;
+        transform: translateY(0);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar.active .sidebar-cta {
+        max-height: 120px;
+        opacity: 1;
+        transform: translateY(0);
+        display: flex;
+        justify-content: center;
+        padding: 16px;
+        border-top: 1px solid var(--border-dark);
+    }
+    /* When menu is open, allow full height */
+    .sidebar.active {
+        height: 100vh;
+    }
+
+    .sidebar-links a {
+        padding: 14px 20px;
+    }
+}
+
+
 /* ================= HERO / HOME ================= */
 
 .hero {
@@ -268,6 +391,7 @@ body {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -278,18 +402,20 @@ body {
     from {
         width: 0;
     }
+
     to {
         width: 100%;
     }
 }
 
 @keyframes floatAvatar {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-12px);
     }
 }
-
-
