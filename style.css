@@ -1,0 +1,150 @@
+:root {
+    --primary-color: #0F044C;
+    --secondary-color: #141E61;
+    --third-color: #787A91;
+    --forth-color: #EEEEEE;
+    --bg-dark: #0f172a;
+    --bg-dark-2: #020617;
+    --primary: #7c3aed;
+    --text-light: #e5e7eb;
+    --text-muted: #9ca3af;
+    
+}
+
+/* Reset helpers (safe to keep in main CSS) */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 100px;
+    background-color: #f8fafc;
+}
+
+/* Sidebar Wrapper */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 72px;
+    height: 100vh;
+    background: linear-gradient(90deg, #1e3a8a, #2563eb);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.08);
+    transition: width 0.35s ease;
+    z-index: 999;
+}
+
+/* Expand on Hover */
+.sidebar:hover {
+    width: 250px;
+}
+
+/* Brand */
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.brand-icon {
+    font-weight: 700;
+    font-size: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.brand-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.brand-text span {
+    color: #6b4eff;
+}
+
+.sidebar:hover .brand-text {
+    opacity: 1;
+}
+
+/* Links */
+.sidebar-links {
+    list-style: none;
+    padding: 20px 0;
+    margin: 0;
+    flex: 1;
+}
+
+.sidebar-links li a {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 14px 22px;
+    text-decoration: none;
+    color: #555;
+    transition: all 0.25s ease;
+}
+
+.sidebar-links i {
+    font-size: 18px;
+    min-width: 24px;
+}
+
+.sidebar-links span {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-links span {
+    opacity: 1;
+}
+
+/* Hover & Active */
+.sidebar-links a:hover,
+.sidebar-links a.active {
+    background: #f3f0ff;
+    color: #6b4eff;
+}
+
+/* CTA */
+.sidebar-cta {
+    padding: 16px;
+    border-top: 1px solid #eee;
+}
+
+.sidebar-cta a {    
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 18px;
+    background: #6b4eff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+a-cta i {
+    text-align: center;
+}
+
+.sidebar-cta a:hover {
+    background: #5a3fe0;
+}
+
+.sidebar-cta span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .sidebar-cta span {
+    opacity: 1;
+}
