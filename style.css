@@ -533,3 +533,233 @@ body {
         width: 200px;
     }
 }
+
+/* ================= ABOUT SECTION ================= */
+
+#about {
+    padding: 100px 6%;
+}
+
+#about h2 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 60px;
+    color: var(--text-light);
+    position: relative;
+}
+
+/* underline accent */
+#about h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* Layout */
+.about-section {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+/* ================= LEFT AVATAR ================= */
+
+.leftside-avatar {
+    flex: 0 0 320px;
+    position: relative;
+}
+
+.leftside-avatar img {
+    width: 100%;
+    border-radius: 24px;
+    background: linear-gradient(135deg, var(--accent), #6d28d9);
+    padding: 6px;
+    box-shadow: 
+        0 20px 60px rgba(124, 58, 237, 0.45),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+    animation: avatarFloat 4s ease-in-out infinite;
+}
+
+/* soft glow */
+.leftside-avatar::after {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(124,58,237,0.35), transparent 60%);
+    z-index: -1;
+    filter: blur(30px);
+}
+
+/* ================= RIGHT TEXT ================= */
+
+.rightside-text {
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.08),
+        rgba(124, 58, 237, 0.02)
+    );
+    padding: 36px 40px;
+    border-radius: 20px;
+    border: 1px solid var(--border-dark);
+}
+
+/* Hover Effect */
+.rightside-text:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 20px 60px rgba(124, 58, 237, 0.25),
+        inset 0 0 0 1px rgba(124, 58, 237, 0.25);
+    border-color: rgba(124, 58, 237, 0.4);
+}
+
+/* Text becomes slightly brighter on hover */
+.rightside-text:hover p {
+    color: var(--text-light);
+}
+
+/* Highlight glow intensifies */
+.rightside-text:hover .highlight-text::after {
+    opacity: 0.45;
+}
+
+.rightside-text p {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text-muted);
+}
+
+/* Accent words */
+.accent-text {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+/* Highlight important lines */
+.highlight-text {
+    position: relative;
+    color: var(--text-light);
+    font-weight: 600;
+    z-index: 1;
+}
+
+.highlight-text::after {
+    content: "";
+    position: absolute;
+    left: -4px;
+    bottom: 4px;
+    width: calc(100% + 8px);
+    height: 10px;
+    background: var(--accent);
+    opacity: 0.25;
+    border-radius: 6px;
+    z-index: -1;
+}
+
+/* Subtle left accent bar */
+.rightside-text::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 24px;
+    height: 60%;
+    width: 4px;
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes avatarFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+/* ================= ABOUT RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    #about {
+        padding: 80px 5%;
+    }
+
+    .about-section {
+        gap: 50px;
+    }
+
+    .leftside-avatar {
+        flex: 0 0 260px;
+    }
+
+    .rightside-text {
+        padding: 30px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #about {
+        padding: 70px 6%;
+    }
+
+    .about-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .leftside-avatar {
+        max-width: 240px;
+        margin: 0 auto;
+    }
+
+    .rightside-text {
+        padding: 28px 24px;
+    }
+
+    /* Center accent bar */
+    .rightside-text::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        width: 60px;
+        height: 4px;
+    }
+
+    .rightside-text p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 40px;
+    }
+
+    #about h2 {
+        font-size: 30px;
+    }
+
+    .rightside-text {
+        padding: 24px 20px;
+    }
+}
+
+/* Disable hover effects on touch devices */
+@media (hover: none) {
+    .rightside-text:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
+
