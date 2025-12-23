@@ -350,67 +350,31 @@ body {
 }
 
 .hero-btn {
-    position: relative;
-    padding: 14px 32px;
-    font-size: 15px;
+    padding: 14px 30px;
+    border-radius: 30px;
     font-weight: 600;
-    border-radius: 999px;
     text-decoration: none;
-    letter-spacing: 0.3px;
-    overflow: hidden;
     transition: all 0.3s ease;
 }
 
 .hero-btn.primary {
     background: linear-gradient(135deg, #7c3aed, #6d28d9);
     color: #fff;
-    box-shadow: 0 14px 40px rgba(124, 58, 237, 0.45);
-}
-
-/* Shine Effects */
-.hero-btn.primary::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 120%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255, 255, 255, 0.35),
-        transparent
-    );
-    transition: left 0.6s ease;
-}
-
-.hero-btn.primary:hover::after {
-    left: 100%;
+    box-shadow: 0 12px 40px rgba(124, 58, 237, 0.4);
 }
 
 .hero-btn.primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 18px 55px rgba(124, 58, 237, 0.6);
-}
-
-/* OUTLINE – Hire Me */
-.hero-btn.outline {
-    border: 1.5px solid var(--accent);
-    color: var(--accent);
-    background: transparent;
-}
-
-/* Glow hover */
-.hero-btn.outline:hover {
-    background: var(--accent);
-    color: #fff;
-    box-shadow: 0 10px 35px rgba(124, 58, 237, 0.5);
     transform: translateY(-2px);
 }
 
-/* Button active state */
-.hero-btn:active {
-    transform: scale(0.96);
+.hero-btn.outline {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+.hero-btn.outline:hover {
+    background: var(--accent);
+    color: #fff;
 }
 
 /* Right Avatar */
@@ -455,8 +419,6 @@ body {
         transform: translateY(-12px);
     }
 }
-
-/* ================= Making Responsive Code ================= */
 /* Tablet */
 @media (max-width: 1024px) {
     .hero {
@@ -762,4 +724,3 @@ body {
         box-shadow: none;
     }
 }
-
