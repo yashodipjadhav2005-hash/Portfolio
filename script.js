@@ -6,26 +6,6 @@ const sidebar = document.querySelector(".sidebar");
     });
 
 
-const skillsSection = document.querySelector('#skills');
-    const progressBars = document.querySelectorAll('.skill-progress');
-
-    const skillObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    progressBars.forEach(bar => {
-                        bar.style.width = bar.style.getPropertyValue('--progress');
-                    });
-                    observer.unobserve(entry.target); // animate only once
-                }
-            });
-        },
-        { threshold: 0.4 }
-    );
-
-    skillObserver.observe(skillsSection);
-
-
 // Succesfull MSG And Submit form to Online Site after submit : 
  const form = document.querySelector(".contact-form");
     const successMessage = document.getElementById("successMessage");

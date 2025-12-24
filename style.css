@@ -1260,6 +1260,17 @@ body {
     gap: 24px;
 }
 
+/* Make whole card clickable */
+.info-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* .info-card {
+    cursor: pointer;
+} */
+
 .info-card {
     display: flex;
     align-items: center;
