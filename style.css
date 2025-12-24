@@ -20,6 +20,24 @@ body {
     font-family: "Inter", sans-serif;
 }
 
+/* BACKGROUND BLUR OVERLAY */
+.page-blur {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.55); /* dark tint */
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    z-index: 998;
+}
+
+.sidebar:hover ~ .page-blur {
+    opacity: 1;
+}
+
 /* ================= SIDEBAR ================= */
 .sidebar {
     position: fixed;
@@ -33,17 +51,33 @@ body {
     z-index: 999;
 }
 
+.sidebar {
+    overflow: hidden;
+}
+
+
 .sidebar:hover {
     width: 260px;
 }
 
 /* ================= BRAND ================= */
 .sidebar-brand {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 14px;
     padding: 22px;
-    border-bottom: 1px solid var(--border-dark);
+    /* border-bottom: 1px solid var(--border-dark); */
+}
+
+.sidebar-brand::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--border-dark);
 }
 
 .brand-icon {
