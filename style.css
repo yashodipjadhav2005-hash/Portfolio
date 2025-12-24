@@ -727,7 +727,7 @@ body {
 
 /* ================= SKILLS SECTION ================= */
 #skills {
-    padding: 80px 5%; /* smaller padding for smaller screens */
+    padding: 40px 5%; 
 }
 
 #skills h2 {
@@ -751,9 +751,9 @@ body {
 
 .skill-proof-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* smaller min width for small screens */
-    gap: 20px; /* reduced gap for mobile screens */
-    justify-items: center; /* center cards */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 20px; 
+    justify-items: center; 
 }
 
 .skill-proof {
@@ -762,18 +762,18 @@ body {
         rgba(124, 58, 237, 0.08),
         rgba(124, 58, 237, 0.02)
     );
-    padding: 20px 18px; /* smaller padding */
+    padding: 20px 18px; 
     border-radius: 15px;
     border: 1px solid var(--border-dark);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%; /* make card full width of grid cell */
+    width: 100%; 
     box-sizing: border-box;
 
 
 }
 
 .skill-icon {
-    width: 45px; /* slightly smaller icons */
+    width: 45px; 
     height: 45px;
     margin-bottom: 10px;
     transition: transform 0.3s;
@@ -861,4 +861,109 @@ body {
     }
 }
 
+/* ================= SERVICES ================= */
 
+.services-section {
+    padding: 120px 8% 80px;
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 70px;
+    font-size: 16px;
+}
+
+/* Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 36px;
+}
+
+/* Card */
+.service-card {
+    background: linear-gradient(
+        135deg,
+        rgba(124, 58, 237, 0.12),
+        rgba(124, 58, 237, 0.02)
+    );
+    border: 1px solid var(--border-dark);
+    padding: 36px 30px;
+    border-radius: 22px;
+    text-align: left;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle at top left,
+        rgba(124, 58, 237, 0.35),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+
+/* Icon */
+.service-card i {
+    font-size: 28px;
+    color: var(--accent);
+    margin-bottom: 18px;
+}
+
+/* Title */
+.service-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.service-card h2 ::after {
+     content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* Text */
+.service-card p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+}
+
+/* Tech label */
+.service-card span {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+/* Hover Effect */
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 70px rgba(124, 58, 237, 0.35);
+}
