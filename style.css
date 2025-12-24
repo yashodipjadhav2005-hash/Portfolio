@@ -8,6 +8,10 @@
     --border-dark: rgba(255, 255, 255, 0.08);
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* ================= BASE ================= */
 body {
     margin-left: 90px;

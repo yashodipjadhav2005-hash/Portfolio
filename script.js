@@ -44,3 +44,26 @@ const contactForm = document.querySelector(".contact-form");
             successMessage.style.display = "none";
         }, 5000);
     });
+
+// Navigation using navigation links : 
+ const navLinks = document.querySelectorAll('.sidebar-links a');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                const offset = 20; // adjust if needed
+                const elementPosition = targetSection.offsetTop;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
