@@ -70,3 +70,22 @@ window.addEventListener("load", () => {
             loader.classList.add("hide");
         }, 600); // smooth delay
     });
+
+// 
+ const sidebar2 = document.querySelector('.sidebar');
+    const navLinks2 = document.querySelectorAll('.sidebar-links a');
+
+    navLinks2.forEach(link => {
+        link.addEventListener('click', () => {
+            // Close menu after click (mobile only)
+            sidebar2.classList.remove('active');
+        });
+    });
+
+const ctaBtn = document.querySelector('.sidebar-cta a');
+
+if (ctaBtn) {
+    ctaBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+    });
+}

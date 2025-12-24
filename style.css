@@ -288,6 +288,10 @@ body {
         padding-top: 64px;
     }
 
+    .page-blur {
+        display: none;
+    }
+
     /* ===== SIDEBAR → TOP NAV ===== */
     .sidebar {
         position: fixed;
