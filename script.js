@@ -26,23 +26,37 @@ const skillsSection = document.querySelector('#skills');
     skillObserver.observe(skillsSection);
 
 
-// Succesfull MSG after submit : 
-const contactForm = document.querySelector(".contact-form");
+// Succesfull MSG And Submit form to Online Site after submit : 
+ const form = document.querySelector(".contact-form");
     const successMessage = document.getElementById("successMessage");
 
-    contactForm.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        // Show success message
-        successMessage.style.display = "block";
+        const formData = new FormData(form);
 
-        // Reset form
-        contactForm.reset();
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "Accept": "application/json"
+                }
+            });
 
-        // Hide message after 5 seconds
-        setTimeout(() => {
-            successMessage.style.display = "none";
-        }, 5000);
+            if (response.ok) {
+                successMessage.style.display = "block";
+                form.reset();
+
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 5000);
+            } else {
+                alert("Oops! Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            alert("Network error. Please try again later.");
+        }
     });
 
 // Navigation using navigation links : 
@@ -66,4 +80,13 @@ const contactForm = document.querySelector(".contact-form");
                 });
             }
         });
+    });
+
+// Loader animation :
+window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+
+        setTimeout(() => {
+            loader.classList.add("hide");
+        }, 600); // smooth delay
     });
